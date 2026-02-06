@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Be My Valentine?</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #ffe6ee;
+      font-family: 'Comic Neue', cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: #fff0f6;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #ff4d6d;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    button {
+      font-size: 1.2rem;
+      padding: 12px 25px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: transform 0.2s ease;
+    }
+
+    #yes {
+      background-color: #ff85a1;
+      color: white;
+    }
+
+    #no {
+      background-color: #ffd6e0;
+      color: #ff4d6d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Will you be my Valentine? 💘</h1>
+
+    <div class="buttons">
+      <button id="yes">Yes 💕</button>
+      <button id="no">No 💔</button>
+    </div>
+  </div>
+
+  <script>
+    const yesButton = document.getElementById("yes");
+    const noButton = document.getElementById("no");
+
+    let yesScale = 1;
+    let noScale = 1;
+
+    noButton.addEventListener("click", () => {
+      yesScale += 0.15;
+      noScale -= 0.15;
+
+      yesButton.style.transform = `scale(${yesScale})`;
+      noButton.style.transform = `scale(${noScale})`;
+
+      if (noScale <= 0.1) {
+        noButton.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>
