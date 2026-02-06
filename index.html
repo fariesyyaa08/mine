@@ -23,11 +23,12 @@
       border-radius: 20px;
       text-align: center;
       box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      width: 320px;
     }
 
     h1 {
       color: #ff4d6d;
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       margin-bottom: 30px;
     }
 
@@ -57,11 +58,37 @@
       background-color: #ffd6e0;
       color: #ff4d6d;
     }
+
+    /* Celebration screen */
+    .celebration {
+      display: none;
+      text-align: center;
+    }
+
+    .celebration h1 {
+      font-size: 2.5rem;
+    }
+
+    .hearts {
+      font-size: 2rem;
+      margin-top: 20px;
+      animation: float 1.5s infinite alternate;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-10px);
+      }
+    }
   </style>
 </head>
 <body>
 
-  <div class="card">
+  <!-- Valentine Question -->
+  <div class="card" id="questionCard">
     <h1>Will you be my Valentine? 💘</h1>
 
     <div class="buttons">
@@ -70,9 +97,18 @@
     </div>
   </div>
 
+  <!-- Celebration Page -->
+  <div class="card celebration" id="celebrationCard">
+    <h1>YAYYYY 💖🎉</h1>
+    <p>You just made me the happiest person ever 🥰</p>
+    <div class="hearts">💗 💕 💖 💘 💓</div>
+  </div>
+
   <script>
     const yesButton = document.getElementById("yes");
     const noButton = document.getElementById("no");
+    const questionCard = document.getElementById("questionCard");
+    const celebrationCard = document.getElementById("celebrationCard");
 
     let yesScale = 1;
     let noScale = 1;
@@ -87,6 +123,11 @@
       if (noScale <= 0.1) {
         noButton.style.display = "none";
       }
+    });
+
+    yesButton.addEventListener("click", () => {
+      questionCard.style.display = "none";
+      celebrationCard.style.display = "block";
     });
   </script>
 
